@@ -1,0 +1,158 @@
+{{!
+    @template core/signup_form_layout
+
+    Example context (json):
+    {
+        "logourl": "https://moodle.org/logo/moodle-logo.svg",
+        "sitename": "Site name",
+        "formhtml": "<p>(Form html would go here)</p>"
+    }
+}}
+<style>
+  .heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .switch {
+      position: relative;
+      display: inline-block;
+      width: 130px;
+      height: 45px;
+  }
+  
+  .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+  }
+  
+  .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 0px;
+  }
+  
+  .slider::before {
+      position: absolute;
+      content: "";
+      height: 37px;
+      width: 30px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 0px;
+  }
+  
+  input:checked + .slider {
+      background-color: #92251E;
+  }
+  
+  input:checked + .slider::before {
+      transform: translateX(91px);
+  }
+  
+  .on, .off {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 500;
+      color: white;
+      transition: opacity 0.4s;
+  }
+  
+  .on {
+      opacity: 0;
+      left: -15px;
+      top: 5px;
+  }
+  
+  .off {
+      opacity: 1;
+      right: -15px;
+      top: 5px;
+  }
+  
+  input:checked + .slider .on {
+      opacity: 1;
+  }
+  
+  input:checked + .slider .off {
+      opacity: 0;
+  }
+  #id_category_1 {
+    display: none;
+  }
+</style>
+<div class="heading">
+  <h3 class="text-center">{{#str}}newaccount{{/str}}</h3>
+  <div class="toggle_box p-3"> 
+    <label class="switch">
+        <input type="checkbox" id="toggle-switch">
+        <span class="slider">
+            <span class="on">Parent</span>
+            <span class="off">Student</span>
+        </span>
+    </label>
+  </div>
+</div>
+
+<div id="student_regiser_form">
+{{{formhtml}}}
+</div>
+<p class="text-center">{{#str}}have_an_account, theme_edumy{{/str}} <a class="text-thm" style="color: #92251E !important;font-size: 16px;font-weight: 400;" href="index.php">{{#str}}login, theme_edumy{{/str}}</a></p>
+
+<script>
+  var emailField = document.getElementById('id_profile_field_email');
+  var phoneField = document.getElementById('id_profile_field_phone');
+  if (emailField) {
+      emailField.placeholder = 'Email';
+  }
+  if (phoneField) {
+      phoneField.placeholder = 'Phone';
+  }
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const toggleSwitch = document.getElementById('toggle-switch');
+    const parentPhone = document.getElementById('fitem_id_phone2');
+    const isParent = document.getElementById('id_profile_field_is_parent');
+    const toggleStateKey = 'toggleSwitchState';
+    
+    const updateUI = (state) => {
+        if (state === 'parent') {
+            parentPhone.style.display = "none";
+            isParent.value = "parent";
+        } else if (state === 'student') {
+            parentPhone.style.display = "block";
+            isParent.value = "student";
+        }
+    };
+
+    // Check if there is a saved state in localStorage and set the toggle switch accordingly
+    const savedState = localStorage.getItem(toggleStateKey);
+    if (savedState) {
+        toggleSwitch.checked = savedState === 'parent';
+        updateUI(savedState);
+    }
+
+    // Add event listener to save state on change and update UI
+    toggleSwitch.addEventListener('change', () => {
+        const newState = toggleSwitch.checked ? 'parent' : 'student';
+        localStorage.setItem(toggleStateKey, newState);
+        updateUI(newState);
+    });
+});
+</script>
+
+

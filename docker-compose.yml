@@ -1,0 +1,38 @@
+services:
+  moodle:
+    build:
+      context: ./docker
+    image: moodle-45:latest
+    container_name: 3alemny_app
+    restart: unless-stopped
+
+    ports:
+      - "8081:80"
+
+    volumes:
+      - ./moodle:/var/www/html
+      - ./moodledata:/var/www/moodledata
+
+    depends_on:
+      - mariadb
+
+  # نفس إصدار MariaDB اللي على السيرفر (10.6).
+  mariadb:
+    image: mariadb:10.6
+    container_name: 3alemny_db
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: 3alemny
+      MYSQL_USER: moodle
+      MYSQL_PASSWORD: moodle
+
+    ports:
+      - "3311:3306"
+
+    volumes:
+      - 3alemny_db:/var/lib/mysql
+
+volumes:
+  3alemny_db:

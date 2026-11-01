@@ -1,0 +1,26 @@
+# Moodle data folder and local database dumps
+/moodledata/
+*.sql
+*.sql.gz
+*.tar.gz
+
+# Secrets (copy the *.example.php files and fill in real values)
+/moodle/config.php
+/moodle/local_secrets.php
+/moodle/**/*firebase-adminsdk*.json
+
+# Uploaded media (user content, too large for git)
+/moodle/upload_video_to_server/activity_videos/
+/moodle/course/course_promo_videos/
+
+# Dependencies installed by npm
+node_modules/
+
+# Editor / OS files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Local-only test login (created for testing the upgrade)
+/.local-test-user.txt

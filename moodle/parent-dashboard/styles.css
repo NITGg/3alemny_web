@@ -1,0 +1,211 @@
+#page {
+    background-image: linear-gradient(to right, #183041 0%, #183041 100%) !important;
+}
+
+.students-list {
+    padding: 10px;
+    background-color: #183041;
+    color: #fff;
+}
+
+.students-list ul {
+    padding-bottom: 10vh;
+    margin-left: 15px;
+}
+
+.student-info {
+    border: 5px solid #183041;
+    padding: 15px 0px;
+}
+
+.student-info h3 {
+    margin-top: 0;
+}
+
+.student-info table {
+    width: 100%;
+}
+
+.student-info table,
+th,
+td {
+    border: 1px solid white;
+}
+
+.student-info th,
+td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #92251e;
+    color: #92251E !important;
+}
+
+.stu_img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+}
+
+h2,
+h3 {
+    color: #fff !important;
+}
+
+.student-link {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    text-align: center;
+    align-items: center;
+    font-size: large;
+    color: #183041;
+    border-radius: inherit;
+    margin-top: 15px;
+}
+
+.progress-bar {
+    background-color: #0f6cbfa1 !important;
+    border-radius: 0.5rem;
+}
+
+.progress_full_count {
+    position: absolute;
+    left: 50%;
+    color: #92251e;
+    bottom: 20px;
+}
+
+.add_new_student {
+    position: absolute;
+    bottom: 10px;
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button.learn-more {
+    width: 12rem;
+    height: auto;
+}
+
+button.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #92251e;
+    border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    transform: translate(-50%, -50%);
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+button.learn-more .circle .icon.plus::before,
+button.learn-more .circle .icon.plus::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+}
+
+button.learn-more .circle .icon.plus::before {
+    width: 1.5rem;
+    height: 0.25rem;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+button.learn-more .circle .icon.plus::after {
+    width: 0.25rem;
+    height: 1.5rem;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+button.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+button:hover .circle {
+    width: 100%;
+}
+
+button:hover .circle .icon.plus::before,
+button:hover .circle .icon.plus::after {
+    background: #fff;
+}
+
+button:hover .button-text {
+    color: #fff;
+}
+
+#add_student_modal_dialog {
+    max-width: 50% !important;
+}
+
+@media only screen and (max-width: 650px) {
+    #add_student_modal_dialog {
+        max-width: 95% !important;
+    }
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+.list-group-item.active {
+    margin-top: 15px !important;
+    background-color: rgb(146, 37, 30);
+    color: rgb(255, 255, 255);
+}
+
+#ccn-main-region .container {
+    max-width: 100% !important;
+}
+
+#ccn-main-region .container .row .col-md-12 {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+#ccn-main .container {
+    max-width: 98% !important;
+}
+
+#ccn-main-region {
+    padding-top: 0px !important;
+    padding-bottom: 10px !important;
+}

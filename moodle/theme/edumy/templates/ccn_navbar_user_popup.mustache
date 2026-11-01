@@ -1,0 +1,40 @@
+{{#notloggedin}}
+  <li class="list-inline-item list_s">
+    {{#header_login_popup}}
+    <a href="#" class="btn flaticon-user" data-toggle="modal" data-target="#exampleModalCenter"> <span class="dn-lg">{{#str}}login_register, theme_edumy{{/str}}</span></a>
+    {{/header_login_popup}}
+    {{#header_login_link}}
+    <style>
+    .nav_btn_new {
+        border: 3px solid #92251E;
+        border-radius: 10px !important;
+        height: 45px !important;
+        width: 100px;
+        text-align: center;
+    }
+    .Mylogin {
+      background-color: #92251E;
+      color: white !important;
+    }
+    .nav_btn_new span {
+      padding-left: 0px !important;
+      font-size: 18px;
+      font-weight: 400;
+    }
+    .header-nav.menu_style_home_one .sign_up_btn li.list_s {
+      border-right: 0px solid !important;
+      display: flex;
+      gap: 10px;
+    }
+    .nav_btn_new:hover {
+      scale: 1.05;
+    }
+    .header-nav.menu_style_home_one.stricky-fixed .sign_up_btn .Mysignup {
+      color: #92251E !important;
+    }
+    </style>
+    <a href="{{{ config.wwwroot }}}/login" class="btn nav_btn_new Mylogin"> <span class="dn-lg">{{#str}}login, theme_edumy{{/str}}</span></a>
+    <a href="{{{ config.wwwroot }}}/login/signup.php" class="btn nav_btn_new Mysignup"> <span class="dn-lg">{{#str}}signup, theme_edumy{{/str}}</span></a>
+    {{/header_login_link}}
+  </li>
+{{/notloggedin}}
